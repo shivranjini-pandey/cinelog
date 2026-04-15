@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual envs
+venv/
+.env
+
+# Env files
+.env
+
+# Node (for future React frontend)
+node_modules/
+dist/
+build/
+
+# Alembic
+alembic/versions/*.pyc
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
