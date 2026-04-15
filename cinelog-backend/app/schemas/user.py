@@ -1,17 +1,17 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 from datetime import datetime
 from uuid import UUID
 
 class UserCreate(BaseModel):
-    username: str
+    username: str = Field(..., min_length=3, max_length=30)
     email: EmailStr
-    password: str
+    password: str = Field(..., min_length=8)
 
 class UserPublic(BaseModel):
     id: UUID
     username: str
-    bio: str | None
-    avatar_url: str | None
+    bio: str | None = None
+    avatar_url: str | None = None
     created_at: datetime
 
     class Config:
