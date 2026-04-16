@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 1 week
     TMDB_API_KEY: str
     OMDB_API_KEY: str
-    ANTHROPIC_API_KEY: str
+    OPENAI_API_KEY: str
 
     class Config:
         env_file = ".env"
