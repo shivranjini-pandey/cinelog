@@ -17,7 +17,12 @@ class Review(Base):
     updated_at     = Column(DateTime(timezone=True), onupdate=func.now())
 
     author         = relationship("User", back_populates="reviews")
-    insights       = relationship("ReviewInsight", back_populates="review", uselist=False)
+    insights       = relationship(
+                        "ReviewInsight",
+                        back_populates="review",
+                        uselist=False,
+                        cascade="all, delete-orphan",
+                        )
 
 class ReviewInsight(Base):
     __tablename__ = "review_insights"
