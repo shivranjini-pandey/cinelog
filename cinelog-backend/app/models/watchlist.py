@@ -14,4 +14,4 @@ class WatchlistItem(Base):
     poster_path    = Column(String, nullable=True)
     added_at       = Column(DateTime(timezone=True), server_default=func.now())
 
-    user           = relationship("User", back_populates="watchlist")
+    user           = relationship("User", back_populates="watchlist", cascade="all, delete-orphan", single_parent=True)
