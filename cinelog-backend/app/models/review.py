@@ -31,7 +31,7 @@ class ReviewInsight(Base):
     review_id   = Column(UUID(as_uuid=True), ForeignKey("reviews.id"), nullable=False)
     sentiment   = Column(String(20))   # "positive" | "negative" | "mixed"
     themes      = Column(String(255))  # comma-separated: "acting, pacing, visuals"
-    verdict     = Column(Text)         # one sentence from Claude
+    verdict     = Column(Text)         # one sentence from ChatGPT
     created_at  = Column(DateTime(timezone=True), server_default=func.now())
 
     review      = relationship("Review", back_populates="insights")
