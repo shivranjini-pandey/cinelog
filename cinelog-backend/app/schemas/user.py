@@ -18,7 +18,7 @@ class UserPublic(BaseModel):
         from_attributes = True     # lets Pydantic read SQLAlchemy objects
 
 class UserUpdate(BaseModel):
-    bio:        str | None = Field(None, max_length=300)
+    bio: str | None = Field(None, max_length=300)
     avatar_url: str | None = None
 
 
