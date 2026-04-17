@@ -179,7 +179,7 @@ async def update_review(
     return _review_query(db).filter(Review.id == review.id).first()
 
 
-# ─── delete your own review ───────────────────────────────────────────────────
+# delete your own review 
 
 @router.delete("/{review_id}", status_code=204)
 def delete_review(
