@@ -1,15 +1,15 @@
 import api from './api'
 
-export const getProfile       = (username) =>
+export const getProfile = (username) =>
   api.get(`/users/${username}`)
 
-export const updateProfile    = (data) =>
+export const updateProfile = (data) =>
   api.patch('/users/me/profile', data)
 
-export const getMyWatchlist   = () =>
+export const getMyWatchlist = () =>
   api.get('/users/me/watchlist')
 
-export const addToWatchlist   = (data) =>
+export const addToWatchlist = (data) =>
   api.post('/users/me/watchlist', data)
 
 export const removeFromWatchlist = (tmdb_movie_id) =>
