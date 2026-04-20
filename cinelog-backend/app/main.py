@@ -1,6 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routers import auth, movies, reviews, users
+from app.database import Base, engine
+from app.models import user, review, watchlist  # Import all models
+
+# Create all tables on startup
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="CineLog API", version="1.0.0")
 
