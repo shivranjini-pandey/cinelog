@@ -11,7 +11,9 @@ app = FastAPI(title="CineLog API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://your-vercel-app.vercel.app"],
+    allow_origins=["http://localhost:5173", "https://your-vercel-app.vercel.app",
+                   "cinelog-frontend-9736v4fb9-shivranjini-pandeys-projects.vercel.app",
+                   "https://cinelog.co"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
