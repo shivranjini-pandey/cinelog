@@ -12,19 +12,19 @@ A full-stack movie review and discovery platform inspired by Letterboxd. Built w
 
 ### Login Page
 
-- **![Login]** <img src="./assets/login.png" width="400"/>
+- <img src="./assets/login.png" width="400"/>
 
 ### Home Page
 
-- **![Home]** <img src="./assets/home.png" width="400"/>
+- <img src="./assets/home.png" width="400"/>
 
 ### Search
 
-- **![Search]** <img src="./assets/search.png" width="400"/>
+- <img src="./assets/search.png" width="400"/>
 
 ### Review
 
-- **![Review]** <img src="./assets/review.png" width="400"/>
+- <img src="./assets/review.png" width="400"/>
 
 ---
 
