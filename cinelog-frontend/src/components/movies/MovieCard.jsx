@@ -8,7 +8,7 @@ export default function MovieCard({ movie }) {
   return (
     <div
       onClick={() => navigate(`/movie/${movie.tmdb_id}`)}
-      className="cursor-pointer group rounded-lg overflow-hidden bg-gray-800
+      className="cursor-pointer group rounded-2xl overflow-hidden bg-gray-800
                  border border-gray-700 hover:border-green-500 transition-all
                  hover:scale-[1.03] hover:shadow-xl hover:shadow-black/40"
     >
