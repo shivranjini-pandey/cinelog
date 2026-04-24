@@ -96,7 +96,7 @@ export default function MovieDetail() {
         <div className="flex-1 space-y-4">
           <div>
             <h1 className="text-3xl font-bold text-white">{movie.title}</h1>
-            <div className="flex flex-wrap gap-3 mt-2 text-sm text-gray-400">
+            <div className="flex flex-wrap gap-4 text-gray-400 text-sm">
               {movie.release_date && <span>{movie.release_date.slice(0, 4)}</span>}
               {runtime && <span>{runtime}</span>}
               {Array.isArray(movie.genres) && movie.genres.length > 0 &&
@@ -106,29 +106,29 @@ export default function MovieDetail() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-4 text-sm">
+          <div className="flex gap-6 mt-2 text-sm">
             {movie.imdb_rating && movie.imdb_rating !== 'N/A' && (
-              <div className="bg-yellow-900/30 border border-yellow-700 rounded-lg px-3 py-2">
-                <p className="text-yellow-400 font-bold text-lg">{movie.imdb_rating}</p>
-                <p className="text-gray-500 text-xs">IMDb</p>
+              <div>
+                <p className="text-yellow-400 font-semibold">{movie.imdb_rating}</p>
+                <p className="text-gray-400">IMDb</p>
               </div>
             )}
             {movie.rt_score && (
-              <div className="bg-red-900/30 border border-red-700 rounded-lg px-3 py-2">
-                <p className="text-red-400 font-bold text-lg">{movie.rt_score}</p>
-                <p className="text-gray-500 text-xs">Rotten Tomatoes</p>
+              <div>
+                <p className="text-red-400 font-semibold">{movie.rt_score}</p>
+                <p className="text-gray-400">Rotten Tomatoes</p>
               </div>
             )}
             {movie.tmdb_rating > 0 && (
-              <div className="bg-blue-900/30 border border-blue-700 rounded-lg px-3 py-2">
-                <p className="text-blue-400 font-bold text-lg">{movie.tmdb_rating}/10</p>
-                <p className="text-gray-500 text-xs">TMDB</p>
+              <div> 
+                <p className="text-green-400 font-semibold">{movie.tmdb_rating}/10</p>
+                <p className="text-gray-400">TMDB</p>
               </div>
             )}
           </div>
 
           {movie.overview && (
-            <p className="text-gray-300 text-sm leading-relaxed max-w-2xl">
+            <p className="text-gray-300 text-sm leading-relaxed max-w-xl mt-4">
               {movie.overview}
             </p>
           )}
