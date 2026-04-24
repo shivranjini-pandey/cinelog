@@ -13,7 +13,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "https://your-vercel-app.vercel.app",
                    "cinelog-frontend-9736v4fb9-shivranjini-pandeys-projects.vercel.app",
-                   "https://cinelog.co"],
+                   "https://cinelog.co", "https://cinelog-frontend-git-test-ui-shivranjini-pandeys-projects.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
