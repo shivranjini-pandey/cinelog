@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black pt-28">
 
-      {/* HERO SECTION */}
+      {/* Hero section */}
       <div className="relative h-[550px] overflow-hidden">
 
         {/* Poster collage */}
@@ -61,7 +61,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* GENRE FILTERS */}
+      {/* Genre */}
       <div className="w-full px-8 py-12">
         <MovieFilters
           genres={genres}
@@ -70,7 +70,7 @@ export default function Home() {
         />
       </div>
 
-      {/* MOVIES SECTION */}
+      {/* Movies */}
       <div className="w-full px-8 py-12">
         <h2 className="text-2xl font-semibold text-white mb-6">
           {activeGenre === null ? "Trending Now" : "Movies"}

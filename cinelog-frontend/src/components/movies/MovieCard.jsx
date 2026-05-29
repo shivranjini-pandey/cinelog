@@ -13,7 +13,7 @@ export default function MovieCard({ movie }) {
                  hover:scale-[1.05]
                  hover:shadow-[0_0_25px_rgba(168,85,247,0.4)]"
     >
-      {/* 🎬 Poster */}
+      {/* Poster */}
       <div className="aspect-[2/3] relative overflow-hidden rounded-2xl">
         <img
           src={movie.poster_url || PLACEHOLDER}
@@ -22,13 +22,13 @@ export default function MovieCard({ movie }) {
           loading="lazy"
         />
 
-        {/* 🌑 Bottom fade overlay (for text readability) */}
+        {/* Bottom fade overlay (for text readability) */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-        {/* ✨ Purple border on hover */}
+        {/* Purple border on hover */}
         <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-purple-500 transition-all duration-300" />
 
-        {/* 🎯 Text overlay */}
+        {/* Text overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 space-y-2">
 
           {/* Title */}

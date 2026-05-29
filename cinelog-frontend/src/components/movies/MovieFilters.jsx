@@ -10,7 +10,7 @@ export default function MovieFilters({ genres, activeGenre, onSelect }) {
       {/* Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-10 gap-4">
 
-        {/* 🔥 Trending */}
+        {/* Trending */}
         <button
           onClick={() => onSelect(null)}
           className={`h-28 rounded-xl flex items-center justify-center text-sm font-medium transition-all
