@@ -1,6 +1,6 @@
 export default function MovieFilters({ genres, activeGenre, onSelect }) {
   return (
-    <div className="w-full px-8 py-16">
+    <div className="w-full px-8">
 
       {/* Title */}
       <h2 className="text-3xl font-semibold text-white mb-8">
