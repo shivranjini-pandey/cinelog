@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-2xl border-b border-gray-800 shadow-md">
 
       {/* FULL WIDTH CONTAINER */}
-      <div className="w-full px-10 py-6 flex items-center justify-between">
+      <div className="w-full px-10 py-5 flex items-center justify-between">
 
         {/* LOGO */}
         <button
@@ -50,7 +50,7 @@ export default function Navbar() {
               onChange={(e) => setQuery(e.target.value)}
               onFocus={() => setFocused(true)}
               onBlur={() => setFocused(false)}
-              className="w-full bg-gray-900/95 border border-gray-700 rounded-full py-6 pl-16 pr-8 text-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all"
+              className="w-full bg-gray-900/95 border border-gray-700 rounded-full py-3 pl-16 pr-8 text-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-all"
             />
           </div>
         </form>
