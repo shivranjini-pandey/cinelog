@@ -19,10 +19,7 @@ export default function Search() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8 space-y-6">
-      <h1 className="text-2xl font-bold text-white">
-        Results for <span className="text-green-400">"{query}"</span>
-      </h1>
+    <div className="max-w-7xl mx-auto px-4 pt-[140px] pb-8 space-y-6">
 
       <MovieGrid movies={movies} loading={loading} error={error} />
 
