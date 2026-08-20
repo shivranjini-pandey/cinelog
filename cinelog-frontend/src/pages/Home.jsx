@@ -31,10 +31,10 @@ export default function Home() {
     <div className="min-h-screen bg-black pt-28">
 
       {/* Hero section */}
-      <div className="relative h-[550px] overflow-hidden">
+      <div className="relative h-[500px] overflow-hidden -mt-4">
 
         {/* Poster collage */}
-        <div className="absolute inset-0 grid grid-cols-4 gap-1 opacity-20">
+        <div className="absolute inset-0 grid grid-cols-4 gap-1 opacity-40">
           {movies.slice(0, 8).map(movie => (
             <img
               key={movie.tmdb_id}
@@ -71,7 +71,7 @@ export default function Home() {
       </div>
 
       {/* Movies */}
-      <div className="w-full px-8 py-12">
+      <div className="w-full px-8 pt-6 pb-16">
         <h2 className="text-2xl font-semibold text-white mb-6">
           {activeGenre === null ? "Trending Now" : "Movies"}
         </h2>
