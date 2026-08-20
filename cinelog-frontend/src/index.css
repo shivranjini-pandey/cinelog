@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* 🎨 THEME VARIABLES */
+/* THEME VARIABLES */
 :root {
   /* Primary (purple / pink gradient system) */
   --color-primary: #a855f7;          /* purple-500 */
@@ -32,14 +32,8 @@
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-/* 🔧 GLOBAL RESET */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-/* 🌑 BACKGROUND WITH SUBTLE GLOW */
+/* BACKGROUND WITH SUBTLE GLOW */
 html {
   background: radial-gradient(
     circle at top,
@@ -48,18 +42,17 @@ html {
   ), var(--color-bg-dark);
 }
 
-/* 🧠 BODY */
+/* BODY */
 body {
   background-color: var(--color-bg-dark);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
 
-  /* Prevent weird overflow spacing */
   overflow-x: hidden;
 }
 
-/* 🧱 ROOT APP CONTAINER SAFETY */
+/* ROOT APP CONTAINER SAFETY */
 #root {
   width: 100%;
   min-height: 100vh;
@@ -67,7 +60,7 @@ body {
   flex-direction: column;
 }
 
-/* 📦 GLOBAL CONTENT WRAPPER (prevents edge leaking) */
+/* GLOBAL CONTENT WRAPPER (prevents edge leaking) */
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -75,7 +68,7 @@ body {
   padding-right: 24px;
 }
 
-/* 📱 RESPONSIVE PADDING */
+/* RESPONSIVE PADDING */
 @media (min-width: 768px) {
   .container {
     padding-left: 40px;
@@ -83,7 +76,7 @@ body {
   }
 }
 
-/* ✨ SCROLLBAR (purple-pink theme) */
+/* SCROLLBAR (purple-pink theme) */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -109,7 +102,7 @@ body {
   );
 }
 
-/* ✨ TEXT SELECTION */
+/* TEXT SELECTION */
 ::selection {
   background: linear-gradient(
     to right,
@@ -119,27 +112,15 @@ body {
   color: white;
 }
 
-/* ✨ SMOOTH UI */
+/* SMOOTH UI */
 button,
 input,
 img {
   transition: all 0.25s ease;
 }
 
-/* 🌌 OPTIONAL GLOW UTILITY */
+/* OPTIONAL GLOW UTILITY */
 .glow-purple {
   box-shadow: 0 0 20px rgba(168,85,247,0.4);
 }
 
-/* 🎯 PREVENT CONTENT TOUCHING EDGES */
-section {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-@media (min-width: 768px) {
-  section {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
