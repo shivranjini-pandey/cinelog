@@ -37,14 +37,6 @@ def _build_profile(user: User, db: Session) -> UserProfileOut:
     )
 
 
-# public profile 
-
-@router.get("/{username}", response_model=UserProfileOut)
-def get_profile(username: str, db: Session = Depends(get_db)):
-    user = _get_user_or_404(username, db)
-    return _build_profile(user, db)
-
-
 # edit your own profile 
 
 @router.patch("/me/profile", response_model=UserPublic)
@@ -61,41 +53,6 @@ def update_profile(
     db.commit()
     db.refresh(current_user)
     return current_user
-
-
-#  reviews by a user (also available at /reviews/user/{username}
-#  but duplicated here so the users namespace is self-contained) 
-
-@router.get("/{username}/reviews", response_model=ReviewListOut)
-def get_user_reviews(
-    username: str,
-    page:     int     = Query(1, ge=1),
-    db:       Session = Depends(get_db),
-):
-    user = _get_user_or_404(username, db)
-
-    base = (
-        db.query(Review)
-        .options(
-            joinedload(Review.author),
-            joinedload(Review.insights),
-        )
-        .filter(Review.user_id == user.id)
-    )
-    total   = base.count()
-    results = (
-        base
-        .order_by(Review.created_at.desc())
-        .offset((page - 1) * PAGE_SIZE)
-        .limit(PAGE_SIZE)
-        .all()
-    )
-    return ReviewListOut(
-        results     = results,
-        total       = total,
-        page        = page,
-        total_pages = math.ceil(total / PAGE_SIZE) or 1,
-    )
 
 
 # watchlist 
@@ -162,6 +119,49 @@ def remove_from_watchlist(
 
     db.delete(item)
     db.commit()
+    db.expire_all()
+
+
+# public profile 
+
+@router.get("/{username}", response_model=UserProfileOut)
+def get_profile(username: str, db: Session = Depends(get_db)):
+    user = _get_user_or_404(username, db)
+    return _build_profile(user, db)
+
+#  reviews by a user (also available at /reviews/user/{username}
+#  but duplicated here so the users namespace is self-contained) 
+
+@router.get("/{username}/reviews", response_model=ReviewListOut)
+def get_user_reviews(
+    username: str,
+    page:     int     = Query(1, ge=1),
+    db:       Session = Depends(get_db),
+):
+    user = _get_user_or_404(username, db)
+
+    base = (
+        db.query(Review)
+        .options(
+            joinedload(Review.author),
+            joinedload(Review.insights),
+        )
+        .filter(Review.user_id == user.id)
+    )
+    total   = base.count()
+    results = (
+        base
+        .order_by(Review.created_at.desc())
+        .offset((page - 1) * PAGE_SIZE)
+        .limit(PAGE_SIZE)
+        .all()
+    )
+    return ReviewListOut(
+        results     = results,
+        total       = total,
+        page        = page,
+        total_pages = math.ceil(total / PAGE_SIZE) or 1,
+    )
 
 
 @router.get("/{username}/watchlist", response_model=WatchlistOut)
