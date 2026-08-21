@@ -10,6 +10,9 @@ from app.schemas.token import TokenOut
 
 router = APIRouter()
 
+@router.get("/me", response_model=UserPublic)
+def get_me(current_user: User = Depends(get_current_user)):
+    return current_user
 
 @router.post("/register", response_model=UserPublic, status_code=201)
 def register(payload: UserCreate, db: Session = Depends(get_db)):
@@ -43,7 +46,13 @@ def login(
     token = create_access_token(str(user.id))
     return {"access_token": token, "token_type": "bearer"}
 
-
-@router.get("/me", response_model=UserPublic)
-def get_me(current_user: User = Depends(get_current_user)):
-    return current_user
+@router.get("/debug/db")
+def debug_db(db: Session = Depends(get_db)):
+    from sqlalchemy import text
+    result = db.execute(text("SELECT current_database(), current_user")).fetchone()
+    users = db.execute(text("SELECT id, username FROM users LIMIT 5")).fetchall()
+    return {
+        "database": result[0],
+        "user": result[1],
+        "users": [{"id": str(r[0]), "username": r[1]} for r in users]
+    }
